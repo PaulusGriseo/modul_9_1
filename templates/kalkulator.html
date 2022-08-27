@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<div id="myBody">
+	<h2>KALKULATOR WALUT </h2>
+	<img src="{{ url_for('static', filename='currency-exchange.png') }}" width="250" height="217" alt="Tu jestem ja w CodeComabat ;P">
+	<div id="right">
+		<h1>Przelicz według <br>aktualnego kursu NBP</h1>
+		
+		<p>
+		<form method="POST" action="/kalkulator/">
+				<p>
+				<label for="currency"><b>Wybierz Walutę</b></label>
+
+				<select name="currency_choice">
+					{% for item in items %}
+					<option value="{{item}}">{{item}}</option>
+					{% endfor %}
+				</select>
+				
+				</p>
+   		 	<p>
+    			<label for=""><b>Kwota do Wymiany</b></label>
+    			<input type="text" placeholder="wprowadź kwotę w PLN" name="pln_exchange" required>
+    			<button type="submit">Przelicz</button>
+    			</p>
+				
+  		</form>
+		</p>
+		<p>
+			<p>
+				{% print(writing1) %} {% print(writing2) %} {% print(writing3) %}
+			</p>
+		</p>
+	</div>
+</div>
+{% endblock %}
